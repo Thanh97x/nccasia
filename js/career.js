@@ -20,6 +20,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // click icon menu
+  var menuBtn = document.querySelector(".menu-icon-btn");
+  menuBtn.addEventListener("click", function () {
+    var menuIcon = document.querySelector(".menu-icon-btn");
+    var navbarCollapse = document.querySelector(".navbar-collapse");
+
+    if (!menuIcon.classList.contains("toggled")) {
+      menuIcon.classList.add("toggled");
+      navbarCollapse.style.display = "block";
+    } else {
+      menuIcon.classList.remove("toggled");
+      navbarCollapse.style.display = "none";
+    }
+  });
+
+  document
+    .querySelector(".see-more-button")
+    .addEventListener("click", function () {
+      var benefits = document.querySelector(".benefits");
+      var benefitIcon = document.querySelector(".benefit-icon");
+      var seeMore = document.querySelector(".see-more-button");
+
+      event.preventDefault();
+      if (benefits.style.display === "none" || benefits.style.display === "") {
+        benefits.style.display = "block";
+        benefitIcon.style.display = "none";
+        seeMore.style.display = "none";
+      } else {
+        benefits.style.display = "none";
+        benefitIcon.style.display = "grid";
+      }
+    });
+
   //scroll header
   window.addEventListener("scroll", function () {
     var headerFix = document.querySelector(".header-fix");
@@ -40,107 +73,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  document
-    .querySelector(".menu-toggler-fix.simple")
-    .addEventListener("click", function () {
-      var navHolder = document.getElementById("nav-holder");
-      var menu = document.getElementById("m-menu");
-      var headerTop = document.querySelector(".header-top");
-      var headerTopMb = document.querySelector(".header-top-mb");
-      var siteContent = document.querySelector(".site-content");
-      var footer = document.querySelector(".footer");
-      var headerFix = document.querySelector(".header-fix");
-      var listJobs = document.querySelector(".page-list-jobs");
-
-      var navHolderDisplay = window.getComputedStyle(navHolder).display;
-
-      if (navHolderDisplay === "none") {
-        navHolder.style.display = "block";
-        menu.style.display = "block";
-        headerTopMb.style.display = "block";
-
-        // Thêm lớp mới vào headerFix
-        headerFix.classList.add("flex-display");
-
-        // page
-        headerTop.style.display = "none";
-        siteContent.style.display = "none";
-        footer.style.display = "none";
-        listJobs.style.display = "none";
-      } else {
-        navHolder.style.display = "none";
-        headerFix.style.display = "none";
-        siteContent.style.display = "block";
-        footer.style.display = "block";
-
-        // Xóa lớp "flex-display" từ headerFix
-        headerFix.classList.remove("flex-display");
-
-        // Kiểm tra nếu cần thiết để thêm lại lớp "scrolled"
-        var scrollPosition = window.scrollY;
-        if (scrollPosition > 0) {
-          headerFix.classList.add("scrolled");
-        } else {
-          headerTopMb.style.display = "none";
-          headerTop.style.display = "flex";
-        }
-      }
-    });
-
-  // Tạo một thẻ style mới
-  var style = document.createElement("style");
-  style.innerHTML = ".flex-display { display: flex !important; }";
-
   // Chèn thẻ style vào phần head của trang
   document.head.appendChild(style);
 
-  // menu-toggler
-  document
-    .querySelector(".menu-toggler.simple")
-    .addEventListener("click", function () {
-      var navHolder = document.getElementById("nav-holder");
-      var menu = document.getElementById("m-menu");
-      var headerFix = document.querySelector(".header-fix");
-      var headerTop = document.querySelector(".header-top");
-      var headerTopMb = document.querySelector(".header-top-mb");
-      var siteContent = document.querySelector(".site-content");
-      var footer = document.querySelector(".footer");
-      var listJobs = document.querySelector(".page-list-jobs");
+  // add class active
+  document.addEventListener("DOMContentLoaded", function () {
+    var applyForm = document.getElementById("apply-form");
+    applyForm.classList.remove("active");
 
-      if (navHolder.style.display === "none") {
-        navHolder.style.display = "block";
-        menu.style.display = "block";
-        headerTopMb.style.display = "block";
+    document
+      .querySelector(".menu-action")
+      .addEventListener("click", function () {
+        applyForm.classList.add("active");
+      });
+  });
 
-        // page
-        headerTop.style.display = "none";
-        siteContent.style.display = "none";
-        footer.style.display = "none";
-        listJobs.style.display = "none";
-      } else {
-        navHolder.style.display = "none";
-      }
-    });
-
-  // menu-toggler-mb
-  document
-    .querySelector(".menu-toggler-mb.simple")
-    .addEventListener("click", function () {
-      var navHolder = document.getElementById("nav-holder");
-      var menu = document.getElementById("m-menu");
-      var insider = document.getElementById("insider");
-      var headerTop = document.querySelector(".header-top");
-      var headerTopMb = document.querySelector(".header-top-mb");
-      var siteContent = document.querySelector(".site-content");
-      var footer = document.querySelector(".footer");
-
-      if (navHolder.style.display === "block") {
-        navHolder.style.display = "none";
-        menu.style.display = "block";
-        headerTop.style.display = "flex";
-        headerTopMb.style.display = "none";
-        siteContent.style.display = "block";
-        footer.style.display = "block";
-      }
-    });
+  // add display: block
 });

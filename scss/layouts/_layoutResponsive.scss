@@ -1,10 +1,10 @@
 @media screen and (min-width: 1440px) {
   //search
-  #page {
-    .search-page {
-      margin-top: 30%;
-    }
-  }
+  // #page {
+  //   .search-page {
+  //     margin-top: 2%;
+  //   }
+  // }
 }
 
 @media screen and (max-width: 1440px) {
@@ -28,6 +28,11 @@
 }
 
 @media screen and (max-width: 1024px) {
+  #page {
+    .search-page {
+      margin-top: 5%;
+    }
+  }
   //title responsive
   .box-head {
     .title-content {
@@ -134,13 +139,18 @@
 }
 
 @media screen and (max-width: 991px) {
+  // img header
+  .header-image-mobile {
+    img {
+      max-width: 100%;
+    }
+  }
   .ncctheme-m-menu > li:nth-child(1) a {
     &::after {
       right: calc(50% - 50px);
     }
 
     &:hover {
-      // padding-right: 40px;
       left: 0;
 
       &::after {
@@ -273,8 +283,8 @@
   }
   .primary-button {
     &.large {
-      font-size: 29px;
-      padding: 3px 12px 1px;
+      font-size: 26px;
+      padding: 8px 12px 4px;
     }
   }
   //footer_responsive
@@ -282,18 +292,188 @@
 
 @media screen and (max-width: 768px) {
   .site-content {
-    margin: $section-margin-small auto 20px;
   }
+  // header
+  .header-image {
+    display: none;
+  }
+
+  .header-image-mobile {
+    display: block;
+    margin-top: 65px;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column-reverse;
+    .header_nav {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      .header_logo {
+        display: block;
+      }
+      .header_menu {
+        display: none;
+      }
+
+      .menu-icon {
+        display: block;
+        .menu-icon-btn {
+          border: none;
+          background: none;
+          align-items: center;
+          display: flex;
+          .menu-icon-close {
+            transition: all 0.3s linear;
+            top: calc(50% - 2px);
+            left: calc(50% - 15px);
+          }
+          .menu-icon-close {
+            position: absolute;
+            width: 28px;
+            height: 4px;
+            border-radius: 17px;
+            background-color: #aabff2;
+            &::before {
+              transition: all 0.3s linear;
+              height: 4px;
+              bottom: 9px;
+              content: "";
+              left: 0;
+              width: 16px;
+              position: absolute;
+              height: 4px;
+              border-radius: 17px;
+              background-color: #aabff2;
+            }
+            &::after {
+              transition: all 0.3s linear;
+              top: 8px;
+              left: 12px;
+              content: "";
+              position: absolute;
+              width: 16px;
+              height: 4px;
+              border-radius: 17px;
+              background-color: #aabff2;
+            }
+          }
+        }
+        .toggled {
+          display: block;
+          border: none;
+          background: none;
+          align-items: center;
+          display: flex;
+          .menu-icon-close {
+            height: 5px;
+            width: 32px;
+            left: 7px;
+            top: calc(50% - 2px);
+            transform: rotate(-45deg);
+            &::before {
+              content: "";
+              transition: all 0.3s linear;
+              height: 5px;
+              bottom: 9px;
+              content: "";
+              left: 8px;
+              width: 16px;
+              position: absolute;
+              height: 5px;
+              border-radius: 17px;
+              background-color: #aabff2;
+              top: -8px;
+              transform: rotate(90deg);
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              transition: all 0.3s linear;
+              top: 8px;
+              left: 8px;
+              width: 16px;
+              height: 5px;
+              border-radius: 17px;
+              background-color: #aabff2;
+              transform: rotate(90deg);
+            }
+          }
+        }
+      }
+
+      .navbar-collapse {
+        display: none;
+        background-color: $primary-text;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10%;
+        ul li {
+          list-style: none;
+          text-align: center;
+          padding: 8px 0 16px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          a {
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 100%;
+            color: $white;
+          }
+        }
+        .nav-button {
+          ul {
+            padding: 0 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            li {
+              list-style: none;
+              text-align: center;
+              padding: 8px 0 16px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              .nav-link_width {
+                width: 50%;
+                a {
+                  background-color: $white;
+                  border: 1px solid $primary-text;
+                  color: $primary-text;
+                  padding: 13px 0;
+                  border-radius: 8px;
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   //title responsive
   .box-head {
     .title-content {
       h2 {
-        font-size: 35px;
+        font-size: 30px;
         line-height: 70px;
       }
     }
     .description {
-      font-size: 30px;
+      font-size: 24px;
+      line-height: 100%;
     }
   }
   .site-header {
@@ -325,7 +505,7 @@
   .search-mobile {
     .container {
       .search-box {
-        margin-top: 35%;
+        margin-top: 7%;
       }
     }
   }
@@ -344,7 +524,6 @@
     }
   }
   // mail box
-
   .background-top {
     top: -6%;
     width: 25%;
@@ -353,6 +532,48 @@
     bottom: -6%;
     width: 25%;
   }
+
+  // recruitment process
+  #process {
+    .process-content {
+      .process-tab {
+        .tab-title {
+          .process-icon {
+            .process-item {
+              img {
+                height: 90px;
+              }
+            }
+            .icon-one,
+            .icon-two,
+            .icon-three {
+              & ::after {
+                width: 58px;
+                right: -16%;
+              }
+            }
+            .icon-five {
+              & ::after {
+                content: "";
+                width: 58px;
+                right: -16%;
+                top: 33%;
+              }
+            }
+            .icon-six {
+              & ::after {
+                height: 92px;
+                width: 169px;
+                top: -28px;
+                left: 82%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   //footer responsive
   .footer {
     .footer_head {
@@ -414,8 +635,7 @@
   .box-head {
     .title-content {
       h2 {
-        font-size: 20px;
-        line-height: 44px;
+        font-size: 22px;
       }
 
       .title {
@@ -468,7 +688,6 @@
   .search-mobile {
     .container {
       .search-box {
-        margin-top: 42%;
         .search-content {
           width: 100%;
           padding: 0 8px;
@@ -480,6 +699,52 @@
         .search-filter {
           width: 100%;
           padding: 0px 0%;
+        }
+      }
+    }
+  }
+
+  // recruitment process
+  #process {
+    .process-content {
+      .process-tab {
+        .tab-title {
+          .process-icon {
+            .process-item {
+              img {
+                height: 58px;
+              }
+            }
+            .icon-one,
+            .icon-two,
+            .icon-three {
+              & ::after {
+                width: 30px;
+                right: -12%;
+                top: 20%;
+              }
+            }
+            .icon-five {
+              & ::after {
+                width: 30px;
+                right: -9%;
+                top: 27px;
+              }
+            }
+            .icon-six {
+              & ::after {
+                height: 45px;
+                top: -10px;
+                left: 90%;
+              }
+            }
+          }
+          .process-item {
+            .description {
+              font-size: 22px;
+              line-height: 100%;
+            }
+          }
         }
       }
     }
@@ -526,7 +791,6 @@
   .search-mobile {
     .container {
       .search-box {
-        margin-top: 48%;
         .search-content {
           width: 100%;
           .search-button {
@@ -548,6 +812,49 @@
       }
     }
   }
+  // recruitment process
+  #process {
+    .process-content {
+      .process-tab {
+        .tab-title {
+          .process-icon {
+            .process-item {
+              img {
+                height: 58px;
+              }
+              .description {
+                font-size: 18px;
+                line-height: 100%;
+              }
+            }
+            .icon-one,
+            .icon-two,
+            .icon-three {
+              & ::after {
+                width: 25px;
+                right: -10%;
+                top: 25%;
+              }
+            }
+            .icon-five {
+              & ::after {
+                width: 25px;
+                right: -10%;
+                top: 25%;
+              }
+            }
+            .icon-six {
+              & ::after {
+                height: 45px;
+                top: -8px;
+                left: 90%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -559,7 +866,6 @@
   .search-mobile {
     .container {
       .search-box {
-        margin-top: 52%;
         .search-content {
           width: 100%;
 
@@ -590,6 +896,45 @@
     .title-content {
       h2 {
         font-size: 18px;
+      }
+    }
+  }
+  // recruitment process
+  #process {
+    .process-content {
+      .process-tab {
+        .tab-title {
+          .process-icon {
+            .process-item {
+              img {
+                height: 58px;
+              }
+            }
+            .icon-one,
+            .icon-two,
+            .icon-three {
+              & ::after {
+                width: 20px;
+                right: -8%;
+                top: 28%;
+              }
+            }
+            .icon-five {
+              & ::after {
+                width: 20px;
+                right: -6%;
+                top: 33px;
+              }
+            }
+            .icon-six {
+              & ::after {
+                height: 38px;
+                top: 2px;
+                left: 94%;
+              }
+            }
+          }
+        }
       }
     }
   }
